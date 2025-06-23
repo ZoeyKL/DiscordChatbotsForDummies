@@ -108,3 +108,15 @@ Customize these:
 That’s it — no money, no BS, full control, using only Discord and your PC.
 
 Enjoy your fully local chatbot.
+
+**DISCLAIMER**
+
+This project is provided **as-is** for **educational and non-commercial use only**. By using, modifying, or redistributing the contents of this repository, you agree to the following:
+
+* The author of this project **assumes no responsibility** for how this software is used.
+* You are **solely responsible** for complying with all applicable laws and regulations in your jurisdiction.
+* This software must **not** be used for illegal activity, harassment, surveillance, misinformation, or any malicious purpose.
+* The author is **not liable** for any damages, losses, or consequences arising from the use or misuse of this project.
+* By using this project, you agree that any **misuse or abuse** of its capabilities is **not the responsibility** of the author.
+
+This tool is intended strictly for **personal, local experimentation** and should not be used in any system where safety, legal compliance, or ethical considerations are critical.
