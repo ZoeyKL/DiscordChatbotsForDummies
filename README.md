@@ -1,6 +1,6 @@
 # Discord + Local LLM Bot (MSTY) – Simple Setup Guide (NVIDIA + Intel Only, AMD users can get fucked)
 
-This guide explains how to run a **fully local AI chatbot** inside your Discord server using **MSTY** and a small amount of scripting. No external APIs, no subscriptions, just your own machine.
+This guide explains how to run a **fully local AI chatbot** inside your Discord server using **MSTY** and a small amount of scripting. No subscriptions, just your own machine.
 
 The bot runs from Windows using a batch file and `bot.py`, which you'll download and configure yourself.
 
