@@ -109,6 +109,9 @@ That’s it — no money, no BS, full control, using only Discord and your PC.
 
 Enjoy your fully local chatbot.
 
+##TODO:
+* Bundle python and configure one time batch file
+
 **DISCLAIMER**
 
 This project is provided **as-is** for **educational and non-commercial use only**. By using, modifying, or redistributing the contents of this repository, you agree to the following:
