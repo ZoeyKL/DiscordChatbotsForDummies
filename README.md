@@ -1,125 +1,42 @@
-# Discord + Local LLM Bot (MSTY) – Simple Setup Guide (NVIDIA + Intel Only, AMD users can get fucked)
+# DiscordChatbotsForDummies
 
-This guide explains how to run a **fully local AI chatbot** inside your Discord server using **MSTY** and a small amount of scripting. No subscriptions, just your own machine.
+**A zero‑configuration installer for connecting your local MSTY LLM to a Discord bot** — no Docker, no servers, no fluff. Just follow these steps and you're ready to chat with your custom AI assistant.
 
-The bot runs from Windows using a batch file and `bot.py`, which you'll download and configure yourself.
+## What It Does
 
----
+This project wraps everything into one simple installer that:
 
-## 1. Create a Discord Bot
+* Sets up your Discord bot with MSTY (Meta LLaMA 3.2) locally
+* Takes care of Python installs, path configuration, and file generation
+* Creates startup scripts ready to run and keep your bot online
 
-1. Go to [https://discord.com/developers/applications](https://discord.com/developers/applications)
-2. Click "New Application" → name your bot (e.g. "Arielle" or anything)
-3. In the sidebar, go to "Bot" → click "Add Bot"
-4. Under "Privileged Gateway Intents":
+## Why It Exists
 
-   * Enable **Message Content Intent**
-5. Copy your **Bot Token** and **save it securely**
-6. In the sidebar, go to "OAuth2" → "URL Generator":
+Because getting AI in Discord shouldn’t require DevOps skills. With **DiscordChatbotsForDummies**, anyone can launch a local‑hosted, fully functional AI bot in minutes — no cloud, no fees, no fuss.
 
-   * Scopes: `bot`
-   * Bot Permissions: `Send Messages`, `Read Message History`
-   * Copy the generated URL and open it in your browser
-   * Add the bot to your server
+## Quick Start
 
----
+1. **Create a Discord bot account** on the Developer Portal.
+2. **Install Python 3.10+**, making sure to add it to your PATH.
+3. **Download and install MSTY** with the default Meta LLaMA 3.2 model.
+4. **Run the installer** — just follow the prompts (token, paths, preferences).
+5. Launch your bot using the generated `start_bot_and_msty.bat`.
 
-## 2. Install MSTY and Your Model
-
-1. Download MSTY from:
-   [https://msty.app](https://msty.app/) (Windows version)
-
-2. Launch MSTY and go through first-time setup
-
-3. In MSTY, open the **Model Downloader** (sidebar)
-
-   * Choose a model that fits your system (e.g. `llama3.2:1b`, `Mistral-Instruct`, etc.)
-   * I strongly recommend Llama-3.2-3B-Instruct-abliterated
-   * For most people with 16–64GB RAM: use **Q4\_K\_M** quantized models
-   * Let MSTY download and install the model
-
-4. Once installed, go to **Settings → Local AI**
-
-   * Make sure your model is selected
-   * Set context size (e.g. 8192), batch size (16), and threads (20 or more if you have a multi-core CPU)
-   * Make sure **Service Endpoint** is: `http://localhost:5000/v1/chat/completions`
-   * Enable local access if not already on
+**Optional**: Add a shortcut to the `start_bot_and_msty.bat` file into your Windows Startup folder so your bot runs automatically when you log in.
 
 ---
 
-## 3. Customize the Files
+## Features
 
-You should now have:
-
-* `bot.py`
-* `start_bot_and_msty.bat`
-
-Customize these:
-
-### In `bot.py`:
-
-* Replace the placeholder `DISCORD_TOKEN` value with your actual bot token
-
-* Set your model name (must match what MSTY shows, e.g. `"llama3.2:1b"`)
-
-* Customize the `PERSONALITY` variable to define how your bot behaves.
-
-* You can adjust history size (`MAX_HISTORY_MESSAGES = 100`) if needed
-
-### In `start_bot_and_msty.bat`:
-
-* Set correct paths for:
-
-  * MSTY executable
-  * Python executable
-  * Location of `bot.py`
-* Match the `MODEL_NAME` to what you're using (e.g. `llama3.2:1b`)
-* You can adjust warm-up message or personality prompt as needed
+* 💡 Smart installer prompts for Discord token, MSTY path, LLM name, port, memory settings, personality, and more.
+* 🔒 Built‑in validation ensures correct token length and Python version.
+* 🧠 Automatically assembles `bot.py`, `start_bot_and_msty.bat`, and `requirements.txt` based on your inputs.
+* 🧾 Saves settings in `bot_config.json` for easy reuse or sharing.
+* 💾 Supports per‑user and per‑channel long‑term chat memory.
+* 🕰 Adds time stamps and UTC offset to every prompt.
+* 🙅 Enforces personality rules, prevents self‑narration, and manages LLM denial.
+* 🚫 AMD exclusion notice (“Intel + NVIDIA only”) for clarity and help‑desk jokes.
 
 ---
 
-## 4. Start the Bot
-
-1. Double-click `start_bot_and_msty.bat`
-
-2. It will:
-
-   * Start MSTY minimized
-   * Wait until MSTY is ready
-   * Warm up the model
-   * Launch the Discord bot
-
-3. In your Discord server, mention the bot:
-
-   * `@YourBotName hello`
-   * It should respond with your custom personality and remember your past messages
-
----
-
-## Optional
-
-* **Persistent memory**: By default, the bot saves user conversations to disk in a `history/` folder. To clear a user's memory, delete their `.json` file from that folder.
-* **Model switching**: Just change the `MODEL_NAME` in both files and update the model in MSTY.
-* **GPU offload**: In MSTY's Local AI settings, you can offload a few layers to GPU if you have one (optional; weak GPUs with 4GB or less of VRAM (for example, 1050 Ti, GTX 1650 (all variants), Quadro P1000, NVIDIA T400, NVIDIA T600) should use 0–4 layers).
-* **Auto start**: You can add a shortcut to `start_bot_and_msty.bat` to Windows startup folder.
-
----
-
-That’s it — no money, no BS, full control, using only Discord and your PC.
-
-Enjoy your fully local chatbot.
-
-## TODO:
-* Bundle python and configure one time batch file
-
-**DISCLAIMER**
-
-This project is provided **as-is** for **educational and non-commercial use only**. By using, modifying, or redistributing the contents of this repository, you agree to the following:
-
-* The author of this project **assumes no responsibility** for how this software is used.
-* You are **solely responsible** for complying with all applicable laws and regulations in your jurisdiction.
-* This software must **not** be used for illegal activity, harassment, surveillance, misinformation, or any malicious purpose.
-* The author is **not liable** for any damages, losses, or consequences arising from the use or misuse of this project.
-* By using this project, you agree that any **misuse or abuse** of its capabilities is **not the responsibility** of the author.
-
-This tool is intended strictly for **personal, local experimentation** and should not be used in any system where safety, legal compliance, or ethical considerations are critical.
+**DiscordChatbotsForDummies**: finally, an AI‑in‑Discord installer you don’t have to be a coder to use.
