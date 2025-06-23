@@ -109,7 +109,7 @@ That’s it — no money, no BS, full control, using only Discord and your PC.
 
 Enjoy your fully local chatbot.
 
-##TODO:
+## TODO:
 * Bundle python and configure one time batch file
 
 **DISCLAIMER**
