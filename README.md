@@ -40,3 +40,7 @@ Because getting AI in Discord shouldn’t require DevOps skills. With **DiscordC
 ---
 
 **DiscordChatbotsForDummies**: finally, an AI‑in‑Discord installer you don’t have to be a coder to use.
+
+## DOWNLOAD
+
+https://github.com/ZoeyKL/DiscordChatbotsForDummies/releases/tag/DiscordChatbotForDummies1.2FINAL
